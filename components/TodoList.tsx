@@ -1,21 +1,33 @@
 'use client';
 
-interface Props {
-  tasks: string[];
-  onDelete: (index: number) => void;
+import React from 'react';
+
+interface Todo {
+  id: number;
+  task: string;
 }
 
-export default function TodoList({ tasks, onDelete }: Props) {
+interface Props {
+  todos: Todo[];
+  onDelete: (id: number) => void;
+}
+
+const TodoList: React.FC<Props> = ({ todos, onDelete }) => {
   return (
-    <ul className="mt-4">
-      {tasks.map((task, index) => (
-        <li key={index} className="flex justify-between items-center p-2 bg-white shadow mb-2 rounded">
-          <span>{task}</span>
-          <button onClick={() => onDelete(index)} className="text-red-500">
+    <ul className="list-disc mb-4 w-full max-w-md">
+      {todos.map((todo) => (
+        <li key={todo.id} className="flex justify-between items-center bg-white p-2 mb-2 rounded shadow">
+          <span>{todo.task}</span>
+          <button
+            onClick={() => onDelete(todo.id)}
+            className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+          >
             Delete
           </button>
         </li>
       ))}
     </ul>
   );
-}
+};
+
+export default TodoList;
