@@ -46,7 +46,6 @@ It is NOT designed to replace human thinking, just a minimal creative nudge when
 
 ![Screenshot of Todo AI App](screenshot.png)
 
-*Add your screenshot in the root directory as `screenshot.png` to showcase the app's interface and features.*
 
 ---
 
